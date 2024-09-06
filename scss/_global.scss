@@ -1,0 +1,349 @@
+body,
+html {
+  overflow-x: hidden;
+  font-family: "Gilroy";
+  &.overflow {
+    overflow: hidden !important;
+  }
+}
+
+body {
+  @include flex;
+  @include dir-col;
+  @include justify-between;
+  min-height: 100vh;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Gilroy";
+}
+
+input,
+textarea {
+  border: none;
+  &:focus {
+    outline: none;
+  }
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  transition: 0.3s;
+  background: none;
+  &:focus {
+    outline: none;
+    border: none;
+  }
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  transition: 0.3s;
+  display: inline-block;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.beer-reveal > img:first-child {
+  height: 100%;
+}
+
+.wrapper {
+  max-width: 1500px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.tabs,
+.tabs2 {
+  display: flex;
+}
+.tabs .tab,
+.tabs2 .tab {
+  padding: 10px 30px;
+  cursor: pointer;
+  @include inline-flex;
+  @include align-center;
+  @include justify-center;
+  transition: 0.3s;
+  background: white;
+  font-size: 24px;
+  font-weight: 500;
+  color: #222;
+  border-radius: 20px 20px 0 0;
+  min-width: 200px;
+  @media (max-width: 1024px) {
+    font-size: 20px;
+    min-width: auto;
+  }
+  @media (max-width: 767px) {
+    font-size: 16px;
+    padding: 10px 15px;
+  }
+}
+.tabs .active,
+.tabs2 .active {
+  background: #0e6131;
+  color: white;
+}
+
+.tab-content-wrap,
+.tab-content-wrap2 {
+  background: #0e6131;
+  border-radius: 0 20px 20px 20px;
+  padding: 20px;
+  .bottom {
+    @include flex;
+    @include justify-between;
+    @include align-center;
+    margin-top: 20px;
+    @media (max-width: 767px) {
+      flex-direction: column-reverse;
+      align-items: flex-start;
+    }
+    .back {
+      font-size: 18px;
+      font-weight: 600;
+      color: white;
+      @media (max-width: 767px) {
+        margin-top: 10px;
+      }
+    }
+    .buttons {
+      @include flex;
+      @media (max-width: 767px) {
+        @include dir-col;
+        width: 100%;
+      }
+      a {
+        margin-left: 15px;
+        @media (max-width: 767px) {
+          margin: 0;
+          margin-bottom: 10px;
+          width: 100%;
+        }
+        &.white {
+          @include inline-flex;
+          padding: 10px 40px;
+          border-radius: 50px;
+          background: #fff;
+          color: #0e6131;
+          border: 1px solid #fff;
+          @include align-center;
+          @include justify-center;
+          font-size: 14px;
+          font-weight: 600;
+          svg {
+            margin-left: 6px;
+            fill: #0e6131;
+            transition: 0.3s;
+          }
+          &:hover {
+            background: #0e6131;
+            color: #fff;
+            svg {
+              fill: #fff;
+            }
+          }
+        }
+        &.border {
+          @include inline-flex;
+          padding: 10px 12px;
+          border-radius: 50px;
+          background: #0e6131;
+          color: #fff;
+          border: 1px solid #fff;
+          @include align-center;
+          @include justify-center;
+          font-size: 14px;
+          font-weight: 600;
+          svg {
+            margin-left: 6px;
+            fill: #fff;
+            transition: 0.3s;
+          }
+          &:hover {
+            background: #fff;
+            color: #0e6131;
+            svg {
+              fill: #0e6131;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.rooms-items {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 40px;
+  @media (max-width: 1024px) {
+    grid-template-columns: 1fr;
+  }
+
+  &.hide {
+    display: none;
+  }
+  .rooms-item {
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    position: relative;
+    z-index: 0;
+    cursor: pointer;
+    &:hover {
+      .info {
+        opacity: 0;
+      }
+    }
+
+    .info {
+      transition: 0.3s;
+      background: #0e6131;
+      font-size: 120px;
+      color: white;
+      font-weight: 500;
+      @include flex;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: calc(100% - 40px);
+      height: calc(100% - 40px);
+      @include align-center;
+      @include justify-center;
+      border-radius: 10px;
+      @media (max-width: 1024px) {
+        font-size: 60px;
+      }
+    }
+    .img-wrap {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+      height: 490px;
+      border-radius: 10px;
+      @media (max-width: 1024px) {
+        height: 120px;
+      }
+    }
+  }
+}
+
+.rooms-tab {
+  height: 0;
+  visibility: hidden;
+  overflow: hidden;
+  &.hide {
+    height: 0;
+    visibility: hidden;
+    overflow: hidden;
+  }
+  &.active {
+    height: auto;
+    visibility: visible;
+    overflow: visible;
+  }
+}
+.tab-content {
+  visibility: hidden;
+  height: 0;
+  opacity: 0;
+  transition: 0.3s;
+  overflow: hidden;
+  .slider-wrap,
+  .slider-wrap2 {
+    position: relative;
+    z-index: 0;
+    .slider-navigation {
+      button {
+        &.slick-next {
+          right: 20px;
+          @media (max-width: 767px) {
+            right: 10px;
+          }
+        }
+        &.slick-prev {
+          left: 20px;
+          @media (max-width: 767px) {
+            left: 10px;
+          }
+          img {
+            transform: rotate(180deg);
+          }
+        }
+      }
+    }
+    .slider,
+    .slider2 {
+      margin-bottom: 0;
+      .slick-dots {
+        display: none !important;
+      }
+      .item {
+        border-radius: 20px;
+        overflow: hidden;
+
+        .block-3d {
+          height: 600px;
+          border-radius: 20px;
+          overflow: hidden;
+          background: url(../img/3d.png);
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: center center;
+          color: #0e6131;
+          font-size: 120px;
+          font-weight: 500;
+          @include flex;
+          @include align-center;
+          @include justify-center;
+          @media (max-width: 1300px) {
+            height: 44vw;
+          }
+          @media (max-width: 1024px) {
+            font-size: 80px;
+          }
+          @media (max-width: 767px) {
+            height: 60vw;
+            font-size: 30px;
+          }
+        }
+      }
+    }
+  }
+}
+.tab-content.active {
+  visibility: visible;
+  height: auto;
+  opacity: 1;
+  overflow: visible;
+}

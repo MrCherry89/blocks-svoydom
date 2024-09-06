@@ -1,0 +1,239 @@
+@import "mixins";
+@import "global";
+@import "fonts";
+
+.grey-bg {
+  background: #eceff3;
+  padding: 20px 80px;
+  @media (max-width: 1500px) {
+    padding: 20px 0;
+  }
+}
+
+.beer-handle {
+  border: 1.5px solid #fff;
+  background: rgba(255, 255, 255, 0.6);
+  width: 50px;
+  height: 50px;
+}
+
+.beer-reveal {
+  border-right: 3px solid #fff;
+}
+
+.beer-slider {
+  width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  img {
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+  }
+}
+
+.buy-wrap {
+  border-radius: 20px;
+  background: white;
+  padding: 30px 20px;
+  margin-top: 60px;
+  @media (max-width: 1024px) {
+    margin-top: 30px;
+  }
+  h2 {
+    font-size: 60px;
+    font-weight: 500;
+    color: #222222;
+    margin-bottom: 20px;
+    margin-left: 30px;
+    @media (max-width: 1024px) {
+      font-size: 40px;
+    }
+    @media (max-width: 767px) {
+      font-size: 30px;
+      margin-left: 0px;
+    }
+  }
+  .info {
+    background: #222222;
+    height: 640px;
+    background: #d9d9d9;
+    border-radius: 40px;
+    margin-bottom: 20px;
+    @media (max-width: 1024px) {
+      height: 480px;
+    }
+    @media (max-width: 767px) {
+      height: 320px;
+      border-radius: 20px;
+    }
+  }
+  .buttons {
+    @include flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+    @media (max-width: 767px) {
+      @include dir-col;
+      margin-top: 10px;
+    }
+    a {
+      min-width: 180px;
+      margin-left: 15px;
+      @media (max-width: 767px) {
+        margin-left: 0;
+        margin-top: 10px;
+      }
+    }
+  }
+}
+
+.select-rooms {
+  margin: 40px 0;
+  @media (max-width: 1024px) {
+    margin-bottom: 0;
+  }
+  h2 {
+    margin-bottom: 20px;
+    font-size: 44px;
+    font-weight: bold;
+    color: #3e3e3e;
+    margin-bottom: 30px;
+    @media (max-width: 767px) {
+      font-size: 30px;
+    }
+  }
+}
+
+.top-info {
+  border-radius: 20px;
+  background: white;
+  padding: 30px 20px;
+  .buttons {
+    @include flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+    @media (max-width: 767px) {
+      @include dir-col;
+      margin-top: 10px;
+    }
+    a {
+      min-width: 180px;
+      margin-left: 15px;
+      @media (max-width: 767px) {
+        margin-left: 0;
+        margin-top: 10px;
+      }
+    }
+  }
+}
+
+.green-btn {
+  @include inline-flex;
+  padding: 10px 40px;
+  border-radius: 50px;
+  background: #0e6131;
+  color: white;
+  border: 1px solid #0e6131;
+  @include align-center;
+  @include justify-center;
+  font-size: 14px;
+  font-weight: 600;
+  svg {
+    margin-left: 6px;
+    fill: white;
+    transition: 0.3s;
+  }
+  &:hover {
+    background: white;
+    color: #0e6131;
+    svg {
+      fill: #0e6131;
+    }
+  }
+}
+
+.white-btn {
+  @include inline-flex;
+  padding: 10px 40px;
+  border-radius: 50px;
+  background: #fff;
+  color: #0e6131;
+  border: 1px solid #0e6131;
+  @include align-center;
+  @include justify-center;
+  font-size: 14px;
+  font-weight: 600;
+  svg {
+    margin-left: 6px;
+    fill: #0e6131;
+    transition: 0.3s;
+  }
+  &:hover {
+    background: #0e6131;
+    color: #fff;
+    svg {
+      fill: #fff;
+    }
+  }
+}
+
+.top-slider-wrap {
+  position: relative;
+  z-index: 0;
+
+  .top-slider {
+    margin-bottom: 0 !important;
+    .item {
+      @include flex;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+  }
+}
+
+.slider-navigation {
+  button {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: white;
+    @include flex;
+    z-index: 10;
+    @media (max-width: 1200px) {
+      width: 40px;
+      height: 40px;
+    }
+    @media (max-width: 767px) {
+      width: 30px;
+      height: 30px;
+    }
+    &:hover {
+      opacity: 0.7;
+    }
+    img {
+      margin: auto;
+      width: 10px;
+      @media (max-width: 767px) {
+        width: 6px;
+      }
+    }
+    &.slick-next {
+      right: 20px;
+      @media (max-width: 767px) {
+        right: 10px;
+      }
+    }
+    &.slick-prev {
+      left: 20px;
+      @media (max-width: 767px) {
+        left: 10px;
+      }
+      img {
+        transform: rotate(180deg);
+      }
+    }
+    &:before {
+      content: none;
+    }
+  }
+}
